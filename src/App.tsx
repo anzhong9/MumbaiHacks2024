@@ -1,11 +1,14 @@
 import { v4 } from "uuid";
 import { useEffect } from "react";
 import { useLocalStorage } from '@uidotdev/usehooks';
-import Editor from "./components/Editor";
-import Preview from "./components/Preview";
 import { FormStateProvider } from "./hooks/stateContext";
 import { BACKGROUNDS, THEMES } from "./constants";
 import { Form } from "antd";
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
+import LandingPage from "./pages/Landing";
+import AddCampaign from "./pages/AddCampaign";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 export interface ISlide {
   uid: string;
@@ -58,23 +61,43 @@ function App() {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    const content = state.slides[state.selectedIdx]
+    const content = state.slides[state.selectedIdx];
     if (!content) return;
     const { text, title } = content;
     form.setFieldsValue({
       title,
       text
-    })
-  }, [state.selectedIdx, state.slides])
+    });
+  }, [state.selectedIdx, state.slides, form]);
 
   return (
     <FormStateProvider value={[state, setState]}>
       <Form layout="vertical" form={form}>
-        <main>
-          <Editor />
-          <Preview />
-        </main>
-        <div id="hidden-renderer"></div>
+        <Router>
+          <nav className="bg-gray-800 p-4">
+            <ul className="flex space-x-4">
+              <li>
+                <Link to="/" className="text-white">Home</Link>
+              </li>
+              <li>
+                <Link to="/addcampaign" className="text-white">Add Campaign</Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="text-white">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/login" className="text-white">Login</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/addcampaign" element={<AddCampaign />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </Router>
       </Form>
     </FormStateProvider>
   );
