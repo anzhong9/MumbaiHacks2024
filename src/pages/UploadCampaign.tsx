@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import InputField from "../components/ui/InputField";
 import { useNavigate } from "react-router-dom";
 import ImageUpload from "../components/ui/ImageUpload";
 
 const UploadCampaign: React.FC = () => {
   const navigate = useNavigate();
+  useEffect(() => { 
+    localStorage.setItem('load' , 'true');
+
+  });
+  
 
   return (
     <div className=" flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-200 py-20 px-4">
@@ -17,13 +22,13 @@ const UploadCampaign: React.FC = () => {
         </h1>
 
         {/* Estimated Reach */}
-        <div className="w-full flex justify-center mb-8">
+        {/* <div className="w-full flex justify-center mb-8">
           <div className="bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl shadow-lg py-4 px-6 text-center text-4xl font-semibold tracking-wide">
             Estimated Reach:
             <br />
             <span className="text-5xl font-bold">1.2M ~ 3.0M</span>
           </div>
-        </div>
+        </div> */}
 
         {/* Form Fields */}
         <div className="flex flex-col md:flex-row gap-10 items-center w-full">

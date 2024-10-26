@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "../../components/Editor";
 import Preview from "../../components/Preview";
@@ -6,6 +6,11 @@ import { Button } from "antd";
 
 const EditCampaign: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => { 
+    localStorage.setItem('load' , 'false');
+
+  });
 
   const handleSave = () => {
     console.log("Save campaign data"); // Save logic (to be expanded)

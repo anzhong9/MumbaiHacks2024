@@ -95,7 +95,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       {/* Header Section */}
-      <div className="mb-8">
+      <div className="mt-12">
         <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
         <p className="mt-2 text-gray-600">Track your key metrics and performance indicators</p>
       </div>
