@@ -40,7 +40,7 @@ const CampaignPreview: React.FC = () => {
   const currentItems = campaigns.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 to-white py-20 px-4">
+    <div className=" flex flex-col items-center bg-gradient-to-br from-blue-100 to-white py-20 px-4">
       <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-6xl">
         <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">Campaign Preview</h1>
         <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">

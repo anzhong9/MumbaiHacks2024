@@ -5,7 +5,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
-      <section className="bg-purple-600 text-white py-20 text-center">
+      <section className="bg-blue-500 text-white py-20 text-center">
         <h1 className="text-5xl font-bold">Welcome to AdGenie</h1>
         <p className="text-lg mt-4">
           AI-powered Ad Campaigns and Personalized Ads tailored for your audience.
@@ -22,22 +22,22 @@ const LandingPage: React.FC = () => {
 
       {/* How It Works */}
       <section className="py-16 px-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-purple-600">How AdGenie Works</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-blue-400">How AdGenie Works</h2>
         <div className="grid md:grid-cols-3 gap-12">
           <div className="bg-white p-8 shadow-md rounded-lg text-center">
-            <h3 className="text-2xl font-semibold text-purple-600">1. Create Your Ad Campaign</h3>
+            <h3 className="text-2xl font-semibold text-blue-400">1. Create Your Ad Campaign</h3>
             <p className="mt-4 text-gray-600">
               Easily set up campaigns and generate personalized ads within minutes.
             </p>
           </div>
           <div className="bg-white p-8 shadow-md rounded-lg text-center">
-            <h3 className="text-2xl font-semibold text-purple-600">2. Target Your Audience</h3>
+            <h3 className="text-2xl font-semibold text-blue-400">2. Target Your Audience</h3>
             <p className="mt-4 text-gray-600">
               Select and target the right audience using our AI-driven analytics.
             </p>
           </div>
           <div className="bg-white p-8 shadow-md rounded-lg text-center">
-            <h3 className="text-2xl font-semibold text-purple-600">3. AI-Optimized Ads</h3>
+            <h3 className="text-2xl font-semibold text-blue-400">3. AI-Optimized Ads</h3>
             <p className="mt-4 text-gray-600">
               Let our AI analyze where and how to run your ads for maximum impact.
             </p>
@@ -47,16 +47,16 @@ const LandingPage: React.FC = () => {
 
       {/* Features Section */}
       <section className="bg-gray-200 py-16 px-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-purple-600">Why Choose AdGenie?</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-blue-400">Why Choose AdGenie?</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-white p-8 shadow-md rounded-lg">
-            <h3 className="text-2xl font-semibold text-purple-600">Personalized Ads</h3>
+            <h3 className="text-2xl font-semibold text-blue-400">Personalized Ads</h3>
             <p className="mt-4 text-gray-600">
               Our platform generates personalized ads for each individual in your audience, ensuring relevance and higher engagement.
             </p>
           </div>
           <div className="bg-white p-8 shadow-md rounded-lg">
-            <h3 className="text-2xl font-semibold text-purple-600">Smart Audience Targeting</h3>
+            <h3 className="text-2xl font-semibold text-blue-400">Smart Audience Targeting</h3>
             <p className="mt-4 text-gray-600">
               Use advanced targeting tools to ensure your ads reach the right people, increasing conversion rates.
             </p>
@@ -66,7 +66,7 @@ const LandingPage: React.FC = () => {
 
       {/* Testimonials Section */}
       <section className="py-16 px-8 bg-white">
-        <h2 className="text-3xl font-bold text-center mb-8 text-purple-600">What Our Users Say</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-blue-400">What Our Users Say</h2>
         <div className="text-center max-w-4xl mx-auto">
           <p className="text-gray-600 italic">
             “AdGenie transformed our marketing strategy. The personalized ads increased our conversion rates by 30%, and the AI targeting saved us hours of manual work.”
@@ -76,7 +76,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-purple-600 text-white py-16 px-8 text-center">
+      <section className="bg-blue-400 text-white py-16 px-8 text-center">
         <h2 className="text-3xl font-bold">Ready to Boost Your Campaigns?</h2>
         <p className="mt-4">Sign up and let AdGenie do the hard work for you!</p>
         <div className="mt-6">

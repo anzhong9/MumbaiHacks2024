@@ -22,8 +22,8 @@ const AddCampaign: React.FC = () => {
   
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 via-white to-blue-200 py-20 ">
-      <div className="bg-white shadow-2xl rounded-lg px-10 py-8 w-[90%] sm:w-[600px] md:w-[700px] lg:w-[750px] rounded-[42px]">
+    <div className=" flex flex-col items-center bg-gradient-to-br from-blue-100 via-white to-blue-200 py-20 ">
+      <div className="bg-white shadow-2xl px-10 py-8 w-[90%] sm:w-[600px] md:w-[700px] lg:w-[750px] rounded-[42px]">
         {/* Title */}
         <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">
           Create Your Campaign
