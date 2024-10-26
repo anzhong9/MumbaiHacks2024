@@ -1,20 +1,16 @@
 import React from "react";
-import Editor from "../components/Editor";
-import Preview from "../components/Preview";
-import { Form } from "antd";
 import InputField from "../components/ui/InputField";
 import { useNavigate } from "react-router-dom";
 
 
 
-const AddCampaign: React.FC = () => {
-  const [form] = Form.useForm();
+const UploadCampaign: React.FC = () => {
 
     const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex flex-col gap-10 py-20 items-center">
-      <h1 className="text-3xl font-bold w-fit mb-4">Create Your Campaign</h1>
+      <h1 className="text-3xl font-bold w-fit mb-4">Upload Your Idea</h1>
 
       {/* Estimated Reach */}
       <div className="w-full flex justify-center pr-10">
@@ -25,24 +21,22 @@ const AddCampaign: React.FC = () => {
 
       {/* Form Fields */}
       <span className="flex flex-col gap-y-10 px-10 w-[550px]">
-        <InputField label="Campaign Name" name="name" />
-        <InputField label="Campaign Handle" name="handle" />
-        <InputField label="Campaign Theme" name="theme" />
-        <InputField label="Campaign Background" name="background" />
-        <InputField label="Campaign Colors" name="colors" />
-        <InputField label="Campaign Slides" name="slides" />
+        <InputField label="Campaign Pic BHENCHOD" name="BC" />
+        <InputField label="title" name="title" />
+        <InputField label="Campaign description" name="description" />
+        
       </span>
 
       {/* Create Campaign Button */}
       <div className="w-full flex justify-end pr-10">
         <button 
-        onClick={() => navigate('/uploadcampaign')}
+        onClick={() => navigate('/CamPaignPreview')}
         className="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500">
-          Upload Campaign
+          Create Ads
         </button>
       </div>
     </div>
   );
 };
 
-export default AddCampaign;
+export default UploadCampaign;

@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "./cnutils";
+import { cn } from "../cnutils";
 import { Link, LinkProps } from "react-router-dom";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
