@@ -11,18 +11,28 @@ import {
   // PDFViewer,
   // Document
 } from "@react-pdf/renderer";
+
+import img from '../assets/13.png'; 
 import { blobToPng, svgToPng } from "./utils";
 
 function Renderer() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [state] = useFormState()!;
-  const { selectedIdx, slides, user, theme } = state;
+  // const { selectedIdx, slides, user, theme } = state;
   return (
     <div>
-      <CardRenderer
+      <Image 
+        src={img} 
+        // style={styles.image} // Add any styles you want
+        // Optionally, set dimensions
+        // width={200} 
+        // height={200}
+      />
+      {/* <CardRenderer
         slide={slides[selectedIdx]}
         user={user}
         theme={theme}
-      />
+      /> */}
       {/* <PDFViewer>
         <Document>
           <ReactPDFCardRenderer

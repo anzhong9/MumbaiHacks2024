@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "../../components/Editor";
-import Preview from "../../components/Preview";
+// import Preview from "../../components/Preview";
 import { Button } from "antd";
 
 const EditCampaign: React.FC = () => {
@@ -22,7 +22,7 @@ const EditCampaign: React.FC = () => {
       <h1 className="text-3xl font-bold mb-4">Edit Campaign</h1>
       <div className="w-full flex flex-col pr-10">
         <Editor />
-        <Preview />
+        {/* <Preview /> */}
       </div>
       <Button type="primary" onClick={handleSave} className="mt-4">
         Save

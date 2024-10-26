@@ -1,5 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import img2 from '../assets/2.png';
+import img3 from '../assets/3.png';
+import img4 from '../assets/4.png';
+import img5 from '../assets/5.png';
+import img6 from '../assets/6.png';
+import img7 from '../assets/7.png';
+import img8 from '../assets/8.png';
+import img9 from '../assets/9.png';
+import img10 from '../assets/10.png';
+import img11 from '../assets/11.png';
+import img12 from '../assets/12.png';
+import img13 from '../assets/13.png';
+import img14 from '../assets/14.png';
+import img15 from '../assets/15.png';
+import img16 from '../assets/16.png';
+
 
 interface Campaign {
   id: number;
@@ -12,56 +28,56 @@ interface Campaign {
 }
 
 const campaigns: Campaign[] = [
-  { id: 1, title: 'Zomato Special', audienceTarget: 'Young Foodies', caption: 'Get your favorites delivered!', ageTarget: '18-24', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?food' },
-  { id: 2, title: 'Midnight Cravings', audienceTarget: 'Late-Night Eaters', caption: 'Satisfy those late-night cravings!', ageTarget: '18-24', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?snack' },
-  { id: 3, title: 'Budget Bites', audienceTarget: 'College Students', caption: 'Affordable meals just for you!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?pizza' },
-  { id: 4, title: 'Family Feast', audienceTarget: 'Family Diners', caption: 'Delicious meals for the whole family!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?family' },
-  { id: 5, title: 'Sweet Treats', audienceTarget: 'Dessert Lovers', caption: 'Indulge in our sweet delights!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?dessert' },
-  { id: 6, title: 'Quick Lunch', audienceTarget: 'Young Professionals', caption: 'Fast and fresh meals for busy days!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?lunch' },
-  { id: 7, title: 'Veggie Delights', audienceTarget: 'Vegetarians', caption: 'Tasty vegetarian options!', ageTarget: '18-24', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?salad' },
-  { id: 8, title: 'Breakfast Bonanza', audienceTarget: 'Breakfast Lovers', caption: 'Start your day with a hearty meal!', ageTarget: '18-24', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?breakfast' },
-  { id: 9, title: 'Healthy Choices', audienceTarget: 'Fitness Enthusiasts', caption: 'Fuel your body with healthy meals!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?healthy' },
-  { id: 10, title: 'Snack Attack', audienceTarget: 'Late-Night Snackers', caption: 'Cravings satisfied any time!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?snack' },
-  { id: 11, title: 'Burger Bonanza', audienceTarget: 'Burger Lovers', caption: 'Try our juicy burgers today!', ageTarget: '18-24', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?burger' },
-  { id: 12, title: 'Pizza Party', audienceTarget: 'Pizza Enthusiasts', caption: 'Best pizzas in town!', ageTarget: '18-24', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?pizza' },
-  { id: 13, title: 'Student Specials', audienceTarget: 'Students', caption: 'Affordable meals for your budget!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?student' },
-  { id: 14, title: 'Weekend Brunch', audienceTarget: 'Brunch Lovers', caption: 'Make your weekends tasty!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?brunch' },
-  { id: 15, title: 'Gourmet Dining', audienceTarget: 'Food Connoisseurs', caption: 'Experience fine dining at home!', ageTarget: '35-44', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?fine-dining' },
-  { id: 16, title: 'Spicy Delights', audienceTarget: 'Spice Lovers', caption: 'For those who love it hot!', ageTarget: '25-34', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?spicy' },
-  { id: 17, title: 'Café Culture', audienceTarget: 'Coffee Aficionados', caption: 'Enjoy a cup of our finest coffee!', ageTarget: '18-24', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?coffee' },
-  { id: 18, title: 'Ice Cream Dreams', audienceTarget: 'Ice Cream Lovers', caption: 'Cool off with our delicious ice creams!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?ice-cream' },
-  { id: 19, title: 'Health Boost', audienceTarget: 'Health Conscious', caption: 'Nourishing meals for your lifestyle!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?healthy' },
-  { id: 20, title: 'Sizzling BBQ', audienceTarget: 'Grill Masters', caption: 'Taste the best BBQ in town!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?bbq' },
-  { id: 21, title: 'Veggie Heaven', audienceTarget: 'Vegetarians', caption: 'Delicious veggie meals for everyone!', ageTarget: '18-24', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?vegetable' },
-  { id: 22, title: 'Sushi Night', audienceTarget: 'Sushi Lovers', caption: 'Authentic sushi delivered to your door!', ageTarget: '25-34', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?sushi' },
-  { id: 23, title: 'Craft Beer', audienceTarget: 'Beer Enthusiasts', caption: 'Try our locally crafted beers!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?beer' },
-  { id: 24, title: 'Quick Dinners', audienceTarget: 'Busy Families', caption: 'Fast dinners for your hectic nights!', ageTarget: '35-44', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?dinner' },
-  { id: 25, title: 'Street Food', audienceTarget: 'Street Food Lovers', caption: 'Enjoy the taste of street food at home!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?street-food' },
-  { id: 26, title: 'Fancy Dining', audienceTarget: 'Food Critics', caption: 'Experience luxury dining!', ageTarget: '35-44', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?luxury' },
-  { id: 27, title: 'Pet-Friendly Eats', audienceTarget: 'Pet Owners', caption: 'Meals for you and treats for your pet!', ageTarget: '25-34', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?pet-friendly' },
-  { id: 28, title: 'Holiday Specials', audienceTarget: 'Festive Diners', caption: 'Celebrate with our holiday menu!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?holiday' },
-  { id: 29, title: 'Cooking Class', audienceTarget: 'Food Enthusiasts', caption: 'Join our cooking classes!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?cooking' },
-  { id: 30, title: 'Vegan Treats', audienceTarget: 'Vegan Community', caption: 'Delicious vegan options available!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?vegan' },
-  { id: 31, title: 'Keto Cuisine', audienceTarget: 'Keto Dieters', caption: 'Satisfy your cravings without the carbs!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?keto' },
-  { id: 32, title: 'Seafood Lovers', audienceTarget: 'Seafood Enthusiasts', caption: 'Fresh seafood delivered to your door!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?seafood' },
-  { id: 33, title: 'Sustainable Eats', audienceTarget: 'Eco-Conscious Diners', caption: 'Enjoy meals that are kind to the planet!', ageTarget: '25-34', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?sustainable' },
-  { id: 34, title: 'Local Favorites', audienceTarget: 'Community Supporters', caption: 'Support local businesses with every meal!', ageTarget: '35-44', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?local' },
-  { id: 35, title: 'Festive Feasts', audienceTarget: 'Celebrators', caption: 'Join us for festive meals!', ageTarget: '25-34', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?celebration' },
-  { id: 36, title: 'Tapas Night', audienceTarget: 'Social Diners', caption: 'Share small plates with friends!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?tapas' },
-  { id: 37, title: 'Choco Lovers', audienceTarget: 'Chocolate Enthusiasts', caption: 'Indulge in rich chocolate desserts!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?chocolate' },
-  { id: 38, title: 'Farm to Table', audienceTarget: 'Fresh Food Lovers', caption: 'Experience freshness with every bite!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?farm' },
-  { id: 39, title: 'Wine Pairing', audienceTarget: 'Wine Enthusiasts', caption: 'Pair your meals with the perfect wine!', ageTarget: '35-44', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?wine' },
-  { id: 40, title: 'Spicy Street Food', audienceTarget: 'Adventurous Eaters', caption: 'Try our bold and spicy street food!', ageTarget: '18-24', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?spicy-street-food' },
-  { id: 41, title: 'Culinary Workshops', audienceTarget: 'Aspiring Chefs', caption: 'Learn cooking from the best!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?workshop' },
-  { id: 42, title: 'Beverage Specials', audienceTarget: 'Drink Lovers', caption: 'Refreshing beverages for hot days!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?beverage' },
-  { id: 43, title: 'Brunch & Mimosas', audienceTarget: 'Brunch Enthusiasts', caption: 'Enjoy a weekend brunch with mimosas!', ageTarget: '25-34', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?brunch' },
-  { id: 44, title: 'Chaat Festival', audienceTarget: 'Street Food Lovers', caption: 'Join us for a chaat festival!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?chaat' },
-  { id: 45, title: 'Pop-Up Dinners', audienceTarget: 'Food Explorers', caption: 'Discover new flavors at our pop-up events!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?popup' },
-  { id: 46, title: 'Cultural Cuisine', audienceTarget: 'Cultural Food Lovers', caption: 'Taste the world with our cultural dishes!', ageTarget: '35-44', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?cultural' },
-  { id: 47, title: 'Meal Prep Services', audienceTarget: 'Busy Individuals', caption: 'Get healthy meals prepared for you!', ageTarget: '25-34', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?meal-prep' },
-  { id: 48, title: 'Popcorn & Movie Night', audienceTarget: 'Movie Buffs', caption: 'Perfect snacks for movie nights!', ageTarget: '18-24', genderTarget: 'All', picUrl: 'https://source.unsplash.com/random/50x50?popcorn' },
-  { id: 49, title: 'Ethnic Cuisine', audienceTarget: 'Food Adventurers', caption: 'Explore flavors from around the globe!', ageTarget: '25-34', genderTarget: 'Male', picUrl: 'https://source.unsplash.com/random/50x50?ethnic' },
-  { id: 50, title: 'Sweet Surprise', audienceTarget: 'Dessert Fans', caption: 'End your meal with a sweet treat!', ageTarget: '18-24', genderTarget: 'Female', picUrl: 'https://source.unsplash.com/random/50x50?sweet' }
+  { id: 1, title: 'Zomato Special', audienceTarget: 'Young Foodies', caption: 'Get your favorites delivered!', ageTarget: '18-24', genderTarget: 'Male', picUrl: img2 },
+  { id: 2, title: 'Midnight Cravings', audienceTarget: 'Late-Night Eaters', caption: 'Satisfy those late-night cravings!', ageTarget: '18-24', genderTarget: 'Female', picUrl: img10 },
+  { id: 3, title: 'Budget Bites', audienceTarget: 'College Students', caption: 'Affordable meals just for you!', ageTarget: '18-24', genderTarget: 'All', picUrl: img13 },
+  { id: 4, title: 'Family Feast', audienceTarget: 'Family Diners', caption: 'Delicious meals for the whole family!', ageTarget: '25-34', genderTarget: 'Female', picUrl:img3 },
+  { id: 5, title: 'Sweet Treats', audienceTarget: 'Dessert Lovers', caption: 'Indulge in our sweet delights!', ageTarget: '18-24', genderTarget: 'All', picUrl: img13 },
+  { id: 6, title: 'Quick Lunch', audienceTarget: 'Young Professionals', caption: 'Fast and fresh meals for busy days!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img16 },
+  { id: 7, title: 'Veggie Delights', audienceTarget: 'Vegetarians', caption: 'Tasty vegetarian options!', ageTarget: '18-24', genderTarget: 'Female', picUrl: img5 },
+  { id: 8, title: 'Breakfast Bonanza', audienceTarget: 'Breakfast Lovers', caption: 'Start your day with a hearty meal!', ageTarget: '18-24', genderTarget: 'Male', picUrl: img4 },
+  { id: 9, title: 'Healthy Choices', audienceTarget: 'Fitness Enthusiasts', caption: 'Fuel your body with healthy meals!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img7 }, 
+  { id: 10, title: 'Snack Attack', audienceTarget: 'Late-Night Snackers', caption: 'Cravings satisfied any time!', ageTarget: '18-24', genderTarget: 'All', picUrl: img6 },
+  { id: 11, title: 'Burger Bonanza', audienceTarget: 'Burger Lovers', caption: 'Try our juicy burgers today!', ageTarget: '18-24', genderTarget: 'Male', picUrl: img11 },
+  { id: 12, title: 'Pizza Party', audienceTarget: 'Pizza Enthusiasts', caption: 'Best pizzas in town!', ageTarget: '18-24', genderTarget: 'Female', picUrl: img9 },
+  { id: 13, title: 'Student Specials', audienceTarget: 'Students', caption: 'Affordable meals for your budget!', ageTarget: '18-24', genderTarget: 'All', picUrl: img12 },
+  { id: 14, title: 'Weekend Brunch', audienceTarget: 'Brunch Lovers', caption: 'Make your weekends tasty!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img8 },
+  { id: 15, title: 'Gourmet Dining', audienceTarget: 'Food Connoisseurs', caption: 'Experience fine dining at home!', ageTarget: '35-44', genderTarget: 'Male', picUrl: img15 },
+  { id: 16, title: 'Spicy Delights', audienceTarget: 'Spice Lovers', caption: 'For those who love it hot!', ageTarget: '25-34', genderTarget: 'All', picUrl: img14 },
+  { id: 17, title: 'Café Culture', audienceTarget: 'Coffee Aficionados', caption: 'Enjoy a cup of our finest coffee!', ageTarget: '18-24', genderTarget: 'Female', picUrl: img2 },
+  { id: 18, title: 'Ice Cream Dreams', audienceTarget: 'Ice Cream Lovers', caption: 'Cool off with our delicious ice creams!', ageTarget: '18-24', genderTarget: 'All', picUrl: img3 },
+  { id: 19, title: 'Health Boost', audienceTarget: 'Health Conscious', caption: 'Nourishing meals for your lifestyle!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img4 },
+  { id: 20, title: 'Sizzling BBQ', audienceTarget: 'Grill Masters', caption: 'Taste the best BBQ in town!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img5 },
+  { id: 21, title: 'Veggie Heaven', audienceTarget: 'Vegetarians', caption: 'Delicious veggie meals for everyone!', ageTarget: '18-24', genderTarget: 'Female', picUrl: img6 },
+  { id: 22, title: 'Sushi Night', audienceTarget: 'Sushi Lovers', caption: 'Authentic sushi delivered to your door!', ageTarget: '25-34', genderTarget: 'All', picUrl: img7 },
+  { id: 23, title: 'Craft Beer', audienceTarget: 'Beer Enthusiasts', caption: 'Try our locally crafted beers!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img8 },
+  { id: 24, title: 'Quick Dinners', audienceTarget: 'Busy Families', caption: 'Fast dinners for your hectic nights!', ageTarget: '35-44', genderTarget: 'Female', picUrl: img9 },
+  { id: 25, title: 'Street Food', audienceTarget: 'Street Food Lovers', caption: 'Enjoy the taste of street food at home!', ageTarget: '18-24', genderTarget: 'All', picUrl: img10 },
+  { id: 26, title: 'Fancy Dining', audienceTarget: 'Food Critics', caption: 'Experience luxury dining!', ageTarget: '35-44', genderTarget: 'Male', picUrl: img2 },
+  { id: 27, title: 'Pet-Friendly Eats', audienceTarget: 'Pet Owners', caption: 'Meals for you and treats for your pet!', ageTarget: '25-34', genderTarget: 'All', picUrl: img14 },
+  { id: 28, title: 'Holiday Specials', audienceTarget: 'Festive Diners', caption: 'Celebrate with our holiday menu!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img14 },
+  { id: 29, title: 'Cooking Class', audienceTarget: 'Food Enthusiasts', caption: 'Join our cooking classes!', ageTarget: '18-24', genderTarget: 'All', picUrl: img14 },
+  { id: 30, title: 'Vegan Treats', audienceTarget: 'Vegan Community', caption: 'Delicious vegan options available!', ageTarget: '18-24', genderTarget: 'All', picUrl: img14 },
+  { id: 31, title: 'Keto Cuisine', audienceTarget: 'Keto Dieters', caption: 'Satisfy your cravings without the carbs!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img14 },
+  { id: 32, title: 'Seafood Lovers', audienceTarget: 'Seafood Enthusiasts', caption: 'Fresh seafood delivered to your door!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img14 }, 
+  { id: 33, title: 'Sustainable Eats', audienceTarget: 'Eco-Conscious Diners', caption: 'Enjoy meals that are kind to the planet!', ageTarget: '25-34', genderTarget: 'All', picUrl: img14 },
+  { id: 34, title: 'Local Favorites', audienceTarget: 'Community Supporters', caption: 'Support local businesses with every meal!', ageTarget: '35-44', genderTarget: 'Female', picUrl: img14 }, 
+  { id: 35, title: 'Festive Feasts', audienceTarget: 'Celebrators', caption: 'Join us for festive meals!', ageTarget: '25-34', genderTarget: 'All', picUrl: img14 },
+  { id: 36, title: 'Tapas Night', audienceTarget: 'Social Diners', caption: 'Share small plates with friends!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img14 },
+  { id: 37, title: 'Choco Lovers', audienceTarget: 'Chocolate Enthusiasts', caption: 'Indulge in rich chocolate desserts!', ageTarget: '18-24', genderTarget: 'All', picUrl: img14 }, 
+  { id: 38, title: 'Farm to Table', audienceTarget: 'Fresh Food Lovers', caption: 'Experience freshness with every bite!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img14 }, 
+  { id: 39, title: 'Wine Pairing', audienceTarget: 'Wine Enthusiasts', caption: 'Pair your meals with the perfect wine!', ageTarget: '35-44', genderTarget: 'Female', picUrl: img14 },
+  { id: 40, title: 'Spicy Street Food', audienceTarget: 'Adventurous Eaters', caption: 'Try our bold and spicy street food!', ageTarget: '18-24', genderTarget: 'Male', picUrl: img14 },
+  { id: 41, title: 'Culinary Workshops', audienceTarget: 'Aspiring Chefs', caption: 'Learn cooking from the best!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img14 },
+  { id: 42, title: 'Beverage Specials', audienceTarget: 'Drink Lovers', caption: 'Refreshing beverages for hot days!', ageTarget: '18-24', genderTarget: 'All', picUrl: img14 },
+  { id: 43, title: 'Brunch & Mimosas', audienceTarget: 'Brunch Enthusiasts', caption: 'Enjoy a weekend brunch with mimosas!', ageTarget: '25-34', genderTarget: 'Female', picUrl: img14 }, 
+  { id: 44, title: 'Chaat Festival', audienceTarget: 'Street Food Lovers', caption: 'Join us for a chaat festival!', ageTarget: '18-24', genderTarget: 'All', picUrl: img14 },
+  { id: 45, title: 'Pop-Up Dinners', audienceTarget: 'Food Explorers', caption: 'Discover new flavors at our pop-up events!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img14 }, 
+  { id: 46, title: 'Cultural Cuisine', audienceTarget: 'Cultural Food Lovers', caption: 'Taste the world with our cultural dishes!', ageTarget: '35-44', genderTarget: 'Female', picUrl: img14 }, 
+  { id: 47, title: 'Meal Prep Services', audienceTarget: 'Busy Individuals', caption: 'Get healthy meals prepared for you!', ageTarget: '25-34', genderTarget: 'All', picUrl: img14 },
+  { id: 48, title: 'Popcorn & Movie Night', audienceTarget: 'Movie Buffs', caption: 'Perfect snacks for movie nights!', ageTarget: '18-24', genderTarget: 'All', picUrl: img14 },
+  { id: 49, title: 'Ethnic Cuisine', audienceTarget: 'Food Adventurers', caption: 'Explore flavors from around the globe!', ageTarget: '25-34', genderTarget: 'Male', picUrl: img14 },
+  { id: 50, title: 'Sweet Surprise', audienceTarget: 'Dessert Fans', caption: 'End your meal with a sweet treat!', ageTarget: '18-24', genderTarget: 'Female', picUrl: img14 },
 ];
 
 

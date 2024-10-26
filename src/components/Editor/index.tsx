@@ -4,12 +4,15 @@ import {
   EditOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Card, Tabs, message } from "antd";
-import Renderer from "../Renderer";
+import { Tabs, message } from "antd";
+// import Renderer from "../Renderer";
+
 import { ContentForm, SettingsForm, ThemeForm } from "./Forms";
 import { useState } from "react";
 import { download } from "./download";
 import { useFormState } from "../../hooks/stateContext";
+
+import img from '../../assets/16.png'; 
 
 const tabs = [
   {
@@ -65,10 +68,14 @@ function Editor() {
 
   return (
     <section className="editor">
-      {contextHolder}
-      <Card className="canvas">
-        <Renderer />
-      </Card>
+      <div>
+
+      <img 
+  src={img} 
+  alt="Description of the image" 
+  style={{ width: '600px', height: '600px' ,padding:'20px' }} // Add any desired styles
+/>
+      </div>
       <div className="form-container">
         <Tabs
           activeKey={activeKey}
