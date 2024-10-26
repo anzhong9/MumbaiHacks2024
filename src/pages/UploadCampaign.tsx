@@ -1,6 +1,7 @@
 import React from "react";
 import InputField from "../components/ui/InputField";
 import { useNavigate } from "react-router-dom";
+import ImageUpload from "../components/ui/ImageUpload";
 
 
 
@@ -20,10 +21,14 @@ const UploadCampaign: React.FC = () => {
       </div>
 
       {/* Form Fields */}
-      <span className="flex flex-col gap-y-10 px-10 w-[550px]">
-        <InputField label="Campaign Pic BHENCHOD" name="BC" />
+      <span className="flex gap-10 items-center">
+
+        <ImageUpload />
+        <span className="flex flex-col gap-4 px-10 w-[550px]" >
+
         <InputField label="title" name="title" />
         <InputField label="Campaign description" name="description" />
+        </span>
         
       </span>
 

@@ -85,7 +85,7 @@ const CampaignPreview: React.FC = () => {
 
       <div className="w-full flex justify-end py-10">
         <button 
-        onClick={() => navigate('/CampaignPreview')}
+        onClick={() => navigate('/dashboard')}
         className="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500">
           Run Campaign
         </button>

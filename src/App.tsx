@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import UploadCampaign from "./pages/UploadCampaign";
 import CampaignPreview from "./pages/CampaignPreview";
+import EditCampaign from "./pages/Edit/EditCampaign";
 
 export interface ISlide {
   uid: string;
@@ -85,7 +86,7 @@ function App() {
                 <Link to="/addcampaign" className="text-white">Add Campaign</Link>
               </li>
               <li>
-                <Link to="/dash55 board" className="text-white">Dashboard</Link>
+                <Link to="/dashboard" className="text-white">Dashboard</Link>
               </li>
               <li>
                 <Link to="/login" className="text-white">Login</Link>
@@ -98,7 +99,8 @@ function App() {
             <Route path="/addcampaign" element={<AddCampaign />} />
             <Route path="/uploadcampaign" element={<UploadCampaign />} />
             <Route path="/campaignPreview" element={<CampaignPreview />} />
-            
+            <Route path="/EditCampaign/:id" element={<EditCampaign />} />
+
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
