@@ -52,7 +52,7 @@ function App() {
     <FormStateProvider value={[state, setState]}>
       <Router>
         <Navbar />
-        <div className="mt-5 min-h-screen">
+        <div className="min-h-screen">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/addcampaign" element={<AddCampaign />} />

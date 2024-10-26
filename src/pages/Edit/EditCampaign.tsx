@@ -18,9 +18,9 @@ const EditCampaign: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-10 py-20 items-center">
+    <div className=" h-fit flex flex-col gap-10 py-20 items-center">
       <h1 className="text-3xl font-bold mb-4">Edit Campaign</h1>
-      <div className="w-full flex flex-col pr-10">
+      <div className="w-full flex flex-col pr-10 max-w-[1400px] max-h-[850px]">
         <Editor />
         {/* <Preview /> */}
       </div>
